@@ -4,6 +4,7 @@ import '../App.css';
 import React from "react";
 import '../App.css'
 
+
 function CreateAcc() {
   const navigate = useNavigate();
 
@@ -19,7 +20,9 @@ function CreateAcc() {
            <button>Register</button>
            <span> or use your acccount</span> 
            <div className="social-container">
-
+          <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a>
+          <a href="#" className="social"><i className="lni lni-google"></i></a>
+          <a href="#" className="social"><i className="lni lni-linkedin-original"></i></a>
             </div>
           </form>
         </div>
@@ -42,7 +45,9 @@ function CreateAcc() {
           <button>Login</button>
           <span>or use your account</span>
           <div className="social-container">
-          {/* <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a> */}
+          <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a>
+          <a href="#" className="social"><i className="lni lni-google"></i></a>
+          <a href="#" className="social"><i className="lni lni-linkedin-original"></i></a>
           </div>
         </form>
       </div>
