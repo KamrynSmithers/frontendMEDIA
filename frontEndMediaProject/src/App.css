@@ -1,0 +1,33 @@
+/*Website Body*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+/*Footer Section*/
+#footer footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 15px;
+  background-color: black;
+}
+
+#footer img {
+  width: 50px;   /* control size */
+  height: 50px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+
+
