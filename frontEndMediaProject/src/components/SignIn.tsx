@@ -1,8 +1,6 @@
 // CreateAcc.tsx
 import { useNavigate } from "react-router-dom";
 import '../App.css';
-import React from "react";
-import '../App.css'
 import '../signIn.css'
 
 
@@ -16,8 +14,8 @@ function CreateAcc() {
           <form action="#">
           <h1>Register Here.</h1>
           <input type = "text" placeholder="Name"/>
-          <input type = "text" placeholder="Email"/>
-          <input type = "text" placeholder="Password"/>
+          <input type = "email" placeholder="Email"/>
+          <input type = "password" placeholder="Password"/>
            <button>Register</button>
            <span> or use your acccount</span> 
            <div className="social-container">
