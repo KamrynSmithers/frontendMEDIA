@@ -1,5 +1,5 @@
 /*Website Body*/
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,8 +8,8 @@
 html, body, #root {
   width: 100%;
   height: 100%;
-  overflow: hidden; /*No extra content showing outside of browser width*/
-}
+  overflow: hidden; /*No extra content showing outside of browser width
+} */
 
 
 /*Footer Section*/
