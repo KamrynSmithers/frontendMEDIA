@@ -8,7 +8,13 @@ function CreateAcc() {
 
   return (
     <div>
-      <h1>Create Account</h1>
+      <div className="container" id="container">
+        <div className="form-container register-container">
+          <form action="">
+            
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
