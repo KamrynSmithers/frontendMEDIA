@@ -1,6 +1,6 @@
 // CreateAcc.tsx
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";import { login, register } from '../api/api.ts'; // ADD THIS - imports api functions
+import React, { useState } from "react";import { login, register } from '../api/api.ts';
 import '../signIn.css'
 
 
@@ -30,7 +30,7 @@ console.log(loginEmail, loginPassword);
       localStorage.setItem('token', response.data.token);
       navigate('/choices');
     } catch (err:any) {
-          console.log('Error:', err); // ADD THIS
+          console.log('Error:', err); 
 
       setError(err.response?.data?.message || 'Login failed');
     }
@@ -56,16 +56,16 @@ console.log(loginEmail, loginPassword);
         <div className="form-container register-container">
 <form onSubmit={handleRegister}>          <h1>Sign Up</h1>
           <input type = "text" placeholder="Name" 
-          value={registerName} // ADD
-            onChange={(e) => setRegisterName(e.target.value)} // ADD
+          value={registerName} 
+            onChange={(e) => setRegisterName(e.target.value)} 
           required/>
           <input type = "email" placeholder="Email"
-          value={registerEmail} // ADD
-            onChange={(e) => setRegisterEmail(e.target.value)} // ADD
+          value={registerEmail} 
+            onChange={(e) => setRegisterEmail(e.target.value)} 
           required/>
           <input type = "password" placeholder="Password" 
-           value={registerPassword} // ADD
-            onChange={(e) => setRegisterPassword(e.target.value)} // ADD
+           value={registerPassword} 
+            onChange={(e) => setRegisterPassword(e.target.value)} 
           required/>
 <button type="submit">Register</button>
            <span> or use your acccount</span> 
@@ -82,12 +82,15 @@ console.log(loginEmail, loginPassword);
 <form onSubmit={handleLogin}>
           <h1>Login</h1>
           <input type="email" placeholder="Email"  
-          value={loginEmail} // ADD
-            onChange={(e) => setLoginEmail(e.target.value)} // ADD
+          value={loginEmail} 
+            onChange={(e) => setLoginEmail(e.target.value)} 
           required/>
           <input type="password" placeholder="Password" 
-          value={loginPassword} // ADD
-            onChange={(e) => setLoginPassword(e.target.value)} // ADD
+          value={loginPassword} 
+
+
+            onChange={(e) => setLoginPassword(e.target.value)} 
+
           required/>
           <div className="content">
             <div className="checkbox">
