@@ -98,7 +98,11 @@ console.log(loginEmail, loginPassword);
               <label>Remeber Me</label>
             </div>
             <div className="pass-link">
-              <a href="#">Forgot Password?</a>
+              <a href="#" onClick={(e) => {
+              e.preventDefault();
+              const email = prompt("Enter your email:");
+              if (email) handleForgotPassword(email);
+              }}>Forgot Password?</a>
             </div>
           </div>
           <button type="submit">Login</button>
