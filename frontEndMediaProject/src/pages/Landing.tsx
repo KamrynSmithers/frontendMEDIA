@@ -2,7 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import Spline from '@splinetool/react-spline';
 import Footer from "../components/Footer";
-
+import Carousel from "../components/Carousel";
 export default function Landing() {
   const navigate = useNavigate();
 
@@ -16,6 +16,7 @@ export default function Landing() {
       >
         <Spline scene="https://prod.spline.design/AgkILtbsOlq4KJt1/scene.splinecode" />
       </div>
+      <Carousel/>
       <Footer />
     </div>
   );

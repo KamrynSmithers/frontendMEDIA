@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../App.css";
 
 function MediaSelection() {
   const navigate = useNavigate();
@@ -23,7 +22,7 @@ function MediaSelection() {
 
   return (
     <div
-      className="container"
+      className="media-container"
       style={{
         backgroundImage: getBackground(),
         backgroundPosition: "center",
@@ -34,7 +33,7 @@ function MediaSelection() {
       {/* BOOKS */}
       <section className="books">
         <button
-          className="button"
+          className="Mediabutton"
           onClick={() => navigate("/books")}
           onMouseEnter={() => setHovered("books")}
           onMouseLeave={() => setHovered(null)}
@@ -46,7 +45,7 @@ function MediaSelection() {
       {/* MOVIES */}
       <section className="movies">
         <button
-          className="button"
+          className="Mediabutton"
           onClick={() => navigate("/movies")}
           onMouseEnter={() => setHovered("movies")}
           onMouseLeave={() => setHovered(null)}
@@ -58,7 +57,7 @@ function MediaSelection() {
       {/* MUSIC */}
       <section className="streams">
         <button
-          className="button"
+          className="Mediabutton"
           onClick={() => navigate("/music")}
           onMouseEnter={() => setHovered("music")}
           onMouseLeave={() => setHovered(null)}

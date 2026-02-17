@@ -4,7 +4,6 @@ import Landing from "./pages/Landing";
 import SignIn from "./components/SignIn";
 import MediaSelection from "./pages/Choices";
 import Footer from "./components/Footer";
-import './App.css'
 
 function App() {
   return (

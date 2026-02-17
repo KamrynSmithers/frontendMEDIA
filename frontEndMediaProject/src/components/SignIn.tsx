@@ -1,6 +1,6 @@
 // CreateAcc.tsx
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";import { login, register } from '../api/api.ts'; // ADD THIS - imports api functions
 import '../signIn.css'
 
 
@@ -8,16 +8,66 @@ function CreateAcc() {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false)
 
+//login form state
+  const [loginEmail, setLoginEmail] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+
+  //register form state
+  const [registerName, setRegisterName] = useState('');
+  const [registerEmail, setRegisterEmail] = useState('');
+  const [registerPassword, setRegisterPassword] = useState('')
+
+  //error message state
+  const [error, setError] = useState('');
+
+  //handles login form submit
+  const handleLogin = async (e:React.SyntheticEvent) => {
+    e.preventDefault();
+console.log('Login submit');
+console.log(loginEmail, loginPassword);
+    try {
+      const response = await login(loginEmail, loginPassword);
+      localStorage.setItem('token', response.data.token);
+      navigate('/choices');
+    } catch (err:any) {
+          console.log('Error:', err); // ADD THIS
+
+      setError(err.response?.data?.message || 'Login failed');
+    }
+  };
+
+// handles register form submit
+  const handleRegister = async (e:React.SyntheticEvent) => {
+    e.preventDefault();
+    try {
+      const response = await register(registerName, registerEmail, registerPassword);
+      localStorage.setItem('token', response.data.token);
+      navigate('/choices');
+    } catch (err:any) {
+      setError(err.response?.data?.message || 'Registration failed');
+    }
+  };
+
   return (
     <div>
 <div className={`container ${isActive ? 'active' : ''}`} id="container">
+  {/* shows error message if login/register fails */}
+        {error && <div style={{color: 'red', textAlign: 'center'}}>{error}</div>}
         <div className="form-container register-container">
-          <form action="#">
-          <h1>Sign Up</h1>
-          <input type = "text" placeholder="Name" required/>
-          <input type = "email" placeholder="Email"required/>
-          <input type = "password" placeholder="Password" required/>
-           <button>Register</button>
+<form onSubmit={handleRegister}>          <h1>Sign Up</h1>
+          <input type = "text" placeholder="Name" 
+          value={registerName} // ADD
+            onChange={(e) => setRegisterName(e.target.value)} // ADD
+          required/>
+          <input type = "email" placeholder="Email"
+          value={registerEmail} // ADD
+            onChange={(e) => setRegisterEmail(e.target.value)} // ADD
+          required/>
+          <input type = "password" placeholder="Password" 
+           value={registerPassword} // ADD
+            onChange={(e) => setRegisterPassword(e.target.value)} // ADD
+          required/>
+<button type="submit">Register</button>
            <span> or use your acccount</span> 
            <div className="social-container">
           <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a>
@@ -29,10 +79,16 @@ function CreateAcc() {
       
 
       <div className="form-container login-container">
-        <form action="#">
+<form onSubmit={handleLogin}>
           <h1>Login</h1>
-          <input type="email" placeholder="Email"  required/>
-          <input type="password" placeholder="Password" required/>
+          <input type="email" placeholder="Email"  
+          value={loginEmail} // ADD
+            onChange={(e) => setLoginEmail(e.target.value)} // ADD
+          required/>
+          <input type="password" placeholder="Password" 
+          value={loginPassword} // ADD
+            onChange={(e) => setLoginPassword(e.target.value)} // ADD
+          required/>
           <div className="content">
             <div className="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox" />
@@ -42,7 +98,7 @@ function CreateAcc() {
               <a href="#">Forgot Password?</a>
             </div>
           </div>
-          <button>Login</button>
+          <button type="submit">Login</button>
           <span>or use your account</span>
           <div className="social-container">
           <a href="#" className="social"><i className="lni lni-facebook-fill"></i></a>
@@ -57,7 +113,7 @@ function CreateAcc() {
           <div className="overlay-panel overlay-left">
             <h1 className="title">Already registered?</h1>
             <p>Login here</p>
-<button className="ghost" onClick={() => setIsActive(false)}>
+<button type="button" className="ghost" onClick={() => setIsActive(false)}>
   Login
   <i className="lni lni-arrow-left login"></i>
 </button>
@@ -65,7 +121,7 @@ function CreateAcc() {
           <div className="overlay-panel overlay-right">
             <h1 className="title">Start <br/> Reviewing Now</h1>
             <p>New here? Join us and start your journey</p>
-<button className="ghost" onClick={() => setIsActive(true)}>
+<button type = "button" className="ghost" onClick={() => setIsActive(true)}>
   Register
   <i className="lni lni-arrow-right register"></i>
 </button>
