@@ -49,6 +49,17 @@ console.log(loginEmail, loginPassword);
     }
   };
 
+
+const handleForgotPassword = async (email: string) => {
+  try {
+    await axios.post('http://localhost:4000/password/forgot-password', { email });
+    alert('Reset email sent! Check your inbox.');
+  } catch (err: any) {
+    alert(err.response?.data?.message || 'Failed to send reset email');
+  }
+};
+
+
   return (
     <div>
 <div className={`container ${isActive ? 'active' : ''}`} id="container">

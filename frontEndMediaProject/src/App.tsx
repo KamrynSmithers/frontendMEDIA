@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import SignIn from "./components/SignIn";
 import MediaSelection from "./pages/Choices";
 import Footer from "./components/Footer";
+import ResetPassword from "./pages/ResetPassword"; 
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Footer />
         </>
       } />
+        <Route path="/reset-password/:token" element={<ResetPassword />} /> 
+
     </Routes>
   );
 }
