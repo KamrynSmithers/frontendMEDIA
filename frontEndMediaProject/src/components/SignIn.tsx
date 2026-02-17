@@ -1,20 +1,22 @@
 // CreateAcc.tsx
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import '../signIn.css'
 
 
 function CreateAcc() {
   const navigate = useNavigate();
+  const [isActive, setIsActive] = useState(false)
 
   return (
     <div>
-      <div className="container" id="container">
+<div className={`container ${isActive ? 'active' : ''}`} id="container">
         <div className="form-container register-container">
           <form action="#">
-          <h1>Register Here.</h1>
-          <input type = "text" placeholder="Name"/>
-          <input type = "email" placeholder="Email"/>
-          <input type = "password" placeholder="Password"/>
+          <h1>Sign Up</h1>
+          <input type = "text" placeholder="Name" required/>
+          <input type = "email" placeholder="Email"required/>
+          <input type = "password" placeholder="Password" required/>
            <button>Register</button>
            <span> or use your acccount</span> 
            <div className="social-container">
@@ -24,17 +26,17 @@ function CreateAcc() {
             </div>
           </form>
         </div>
-      </div>
+      
 
       <div className="form-container login-container">
         <form action="#">
-          <h1>Login Here</h1>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <h1>Login</h1>
+          <input type="email" placeholder="Email"  required/>
+          <input type="password" placeholder="Password" required/>
           <div className="content">
             <div className="checkbox">
               <input type="checkbox" name="checkbox" id="checkbox" />
-              <label htmlFor="Remeber Me"></label>
+              <label>Remeber Me</label>
             </div>
             <div className="pass-link">
               <a href="#">Forgot Password?</a>
@@ -53,22 +55,25 @@ function CreateAcc() {
       <div className="overlay-container">
         <div className="overlay">
           <div className="overlay-panel overlay-left">
-            <h1 className="title">Hello <br/> friends</h1>
-            <p>if have an account login here and have fun</p>
-            <button className="gost" id="login">LogIn
-              <i className="lni lni-arrow-left login"></i>
-            </button>
+            <h1 className="title">Already registered?</h1>
+            <p>Login here</p>
+<button className="ghost" onClick={() => setIsActive(false)}>
+  Login
+  <i className="lni lni-arrow-left login"></i>
+</button>
           </div>
           <div className="overlay-panel overlay-right">
-            <h1 className="title">Start your<br/> journey now</h1>
-            <p>If you don't have an account yet, join us and start your journey</p>
-            <button className="ghost register">Register
-              <i className="lni lni-arrow-right register"></i>
-            </button>
+            <h1 className="title">Start <br/> Reviewing Now</h1>
+            <p>New here? Join us and start your journey</p>
+<button className="ghost" onClick={() => setIsActive(true)}>
+  Register
+  <i className="lni lni-arrow-right register"></i>
+</button>
           </div>
         </div>
       </div>
 
+    </div>
     </div>
   );
 }
