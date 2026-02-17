@@ -2,6 +2,7 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";import { login, register } from '../api/api.ts';
 import '../signIn.css'
+import axios from 'axios'
 
 
 function CreateAcc() {
