@@ -17,3 +17,12 @@ function Movies () {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setLoading(true);
+    getLatestMovies(page)
+      .then((data) => {
+        console.log('API Response:', data);
+        setMovies(data.result || []);
+        setLoading(false);
+      })
