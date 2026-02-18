@@ -26,3 +26,7 @@ function Movies () {
         setMovies(data.result || []);
         setLoading(false);
       })
+       .catch((err) => {
+        console.error('Error fetching movies:', err);
+        setLoading(false);
+      });
