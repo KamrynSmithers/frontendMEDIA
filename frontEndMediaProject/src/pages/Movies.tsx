@@ -61,4 +61,24 @@ function Movies () {
           Next
         </button>
       </div>
-      
+      <div className="movies-grid">
+        {movies.map((movie) => (
+          <div
+            key={movie.imdb_id}
+            className="movie-card"
+            onClick={() => setSelectedMovie(movie)}
+          >
+            <img src={movie.img} alt={movie.title} />
+            <div className="movie-info">
+              <h3>{movie.title}</h3>
+              <span className="movie-year">{movie.year}</span>
+              <span className="movie-quality">{movie.quality}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Movies;
