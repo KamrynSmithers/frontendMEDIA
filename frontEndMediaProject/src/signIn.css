@@ -4,20 +4,17 @@
     box-sizing: border-box;
 }
 
-body {
+.signin-page {
     display: flex;
-    background-color: #f6f5f7;
+    background-color: #0c0c0c;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-family: "Poppins", sans-serif ;
+    font-family: "Poppins", sans-serif;
     margin: 0;
-    padding: 20px; /* Add breathing room on small screens */
-    min-height: 100vh; /* Use min-height instead of height */
-    background-color: #0c0c0c;
-    overflow: hidden; 
-    /* height: 100vh; */
-
+    padding: 20px;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 h1 {

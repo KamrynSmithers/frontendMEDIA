@@ -60,9 +60,9 @@ const handleForgotPassword = async (email: string) => {
 };
 
 
-  return (
-    <div>
-<div className={`container ${isActive ? 'active' : ''}`} id="container">
+return (
+  <div className="signin-page">
+    <div className={`container ${isActive ? 'active' : ''}`} id="container">
   {/* shows error message if login/register fails */}
         {error && <div style={{color: 'red', textAlign: 'center'}}>{error}</div>}
         <div className="form-container register-container">
