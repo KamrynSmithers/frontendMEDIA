@@ -5,6 +5,7 @@ import SignIn from "./components/SignIn";
 import MediaSelection from "./pages/Choices";
 import Footer from "./components/Footer";
 import ResetPassword from "./pages/ResetPassword"; 
+import Movies from "./pages/Movies";
 
 function App() {
   return (
@@ -23,8 +24,9 @@ function App() {
         </>
       } />
         <Route path="/reset-password/:token" element={<ResetPassword />} /> 
-
+      <Route path="/movies" element={<Movies />} />
     </Routes>
+    
   );
 }
 

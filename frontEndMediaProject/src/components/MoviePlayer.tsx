@@ -25,3 +25,39 @@ function MoviePlayer ({ imdbId, tmdbId, type, season, episode, onClose }: MovieP
     }
     return '';
   };
+
+  return (
+    <div style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100vw', 
+      height: '100vh', 
+      backgroundColor: 'black',
+      zIndex: 1000 
+    }}>
+      <button 
+        onClick={onClose}
+        style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          padding: '10px 20px',
+          zIndex: 1001,
+          cursor: 'pointer'
+        }}
+      >
+        Close
+      </button>
+      <iframe
+        src={getEmbedUrl()}
+        width="100%"
+        height="100%"
+        allowFullScreen
+        frameBorder="0"
+      />
+    </div>
+  );
+}
+
+export default MoviePlayer;
