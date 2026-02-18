@@ -44,3 +44,21 @@ function Movies () {
   if (loading) {
     return <div className="loading">Loading movies...</div>
   }
+  return (
+    <div className="movies-container">
+      <h1>Latest Movies</h1>
+      
+      {/* Pagination Controls */}
+      <div className="pagination">
+        <button 
+          onClick={() => setPage(p => Math.max(1, p - 1))}
+          disabled={page === 1}
+        >
+          Previous
+        </button>
+        <span>Page {page}</span>
+        <button onClick={() => setPage(p => p + 1)}>
+          Next
+        </button>
+      </div>
+      
