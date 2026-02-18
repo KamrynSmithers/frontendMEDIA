@@ -29,6 +29,7 @@ console.log(loginEmail, loginPassword);
     try {
       const response = await login(loginEmail, loginPassword);
       localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data._id);
       navigate('/choices');
     } catch (err:any) {
           console.log('Error:', err); 
@@ -43,6 +44,7 @@ console.log(loginEmail, loginPassword);
     try {
       const response = await register(registerName, registerEmail, registerPassword);
       localStorage.setItem('token', response.data.token);
+       localStorage.setItem('userId', response.data._id)
       navigate('/choices');
     } catch (err:any) {
       setError(err.response?.data?.message || 'Registration failed');
@@ -66,7 +68,7 @@ return (
   {/* shows error message if login/register fails */}
         {error && <div style={{color: 'red', textAlign: 'center'}}>{error}</div>}
         <div className="form-container register-container">
-<form onSubmit={handleRegister}>          <h1>Sign Up</h1>
+<form id="signInForm"onSubmit={handleRegister}>          <h1 id="signInLogin">Sign Up</h1>
           <input type = "text" placeholder="Name" 
           value={registerName} 
             onChange={(e) => setRegisterName(e.target.value)} 
@@ -92,7 +94,7 @@ return (
 
       <div className="form-container login-container">
 <form onSubmit={handleLogin}>
-          <h1>Login</h1>
+          <h1 id="signInLogin">Login</h1>
           <input type="email" placeholder="Email"  
           value={loginEmail} 
             onChange={(e) => setLoginEmail(e.target.value)} 

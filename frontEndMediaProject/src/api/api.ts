@@ -26,4 +26,20 @@ export const register = (username: string, email: string, password: string) => {
   return api.post('/auth/register', { username, email, password });
 };
 
+export const createComment = (contentTitle: string, contentType: string, text: string, rating?: number) => {
+  return api.post('/media-comments', { contentTitle, contentType, text, rating });
+};
+
+export const getComments = (contentTitle: string, contentType: string) => {
+  return api.get(`/media-comments/${contentType}/${encodeURIComponent(contentTitle)}`);
+};
+
+export const updateComment = (commentId: string, text: string, rating?: number) => {
+  return api.put(`/media-comments/${commentId}`, { text, rating });
+};
+
+export const deleteComment = (commentId: string) => {
+  return api.delete(`/media-comments/${commentId}`);
+};
+
 export default api;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getMovieDetails, getWatchProviders } from '../api/vidsrc';
 import '../movieModal.css';
+import CommentsSection from './CommentSection';
 
 interface MovieDetailsModalProps {
   movieId: number;
@@ -57,7 +58,7 @@ function MovieDetailsModal({ movieId, onClose, onAddToFavorites, isFavorite }: M
               className={`favorite-btn ${isFavorite ? 'active' : ''}`}
               onClick={() => onAddToFavorites(movie)}
             >
-              {isFavorite ? '❤️ Remove from Favorites' : '🤍 Add to Favorites'}
+              {isFavorite ? ' Remove from Favorites' : ' Add to Favorites'}
             </button>
           </div>
         </div>
@@ -92,6 +93,8 @@ function MovieDetailsModal({ movieId, onClose, onAddToFavorites, isFavorite }: M
             {!providers.flatrate && <p>Not available for streaming</p>}
           </div>
         )}
+            <CommentsSection contentTitle={movie.title} contentType="movie" />
+
       </div>
     </div>
   );

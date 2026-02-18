@@ -4,8 +4,8 @@ const OMDB_API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 const TMDB_API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 console.log('Key:', import.meta.env.VITE_TMDB_API_KEY);
-console.log('TMDB_API_KEY value:', TMDB_API_KEY); // ADD THIS
-console.log('Is it undefined?', TMDB_API_KEY === undefined); // ADD THIS
+console.log('TMDB_API_KEY value:', TMDB_API_KEY); 
+console.log('Is it undefined?', TMDB_API_KEY === undefined); 
 // TMDB API
 export const getTrendingMovies = async () => {
   const response = await axios.get(`https://api.themoviedb.org/3/trending/movie/week`, {

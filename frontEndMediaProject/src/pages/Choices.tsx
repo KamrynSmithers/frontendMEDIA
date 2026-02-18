@@ -1,70 +1,56 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../app.css";
+import '../choices.css'
 
 function MediaSelection() {
   const navigate = useNavigate();
 
-  const [hovered, setHovered] = useState<"books" | "movies" | "music" | null>(null);
-
-  // Helper function for background style
-  const getBackground = () => {
-    switch (hovered) {
-      case "books":
-        return "url('https://m.media-amazon.com/images/I/81kejUIurGL._SL1500_.jpg')";
-      case "movies":
-        return "url('https://i.pinimg.com/736x/12/34/56/your-placeholder.jpg')"; // replace with real poster
-      case "music":
-        return "url('https://i.pinimg.com/736x/6d/a7/70/6da7708a673f604e7e4c5d20827eaa11.jpg')";
-      default:
-        return "none";
-    }
-  };
-
   return (
-    <div
-      className="media-container"
-      style={{
-        backgroundImage: getBackground(),
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        transition: "all 0.3s ease",
-      }}
-    >
-      {/* BOOKS */}
-      <section className="books">
+    <div className="media-container">
+      {/* BOOKS SECTION */}
+      <div 
+        className="media-section"
+        style={{
+          backgroundImage: "url('https://m.media-amazon.com/images/I/81kejUIurGL._SL1500_.jpg')"
+        }}
+      >
         <button
           className="Mediabutton"
           onClick={() => navigate("/books")}
-          onMouseEnter={() => setHovered("books")}
-          onMouseLeave={() => setHovered(null)}
         >
           BOOKS
         </button>
-      </section>
+      </div>
 
-      {/* MOVIES */}
-      <section className="movies">
+      {/* MOVIES SECTION */}
+      <div 
+        className="media-section"
+        style={{
+          backgroundImage: "url('https://m.media-amazon.com/images/I/81uTQDeL9SL.jpg')"
+        }}
+      >
         <button
           className="Mediabutton"
           onClick={() => navigate("/movies")}
-          onMouseEnter={() => setHovered("movies")}
-          onMouseLeave={() => setHovered(null)}
         >
           MOVIES
         </button>
-      </section>
+      </div>
 
-      {/* MUSIC */}
-      <section className="streams">
+      {/* MUSIC SECTION */}
+      <div 
+        className="media-section"
+        style={{
+          backgroundImage: "url('https://i.pinimg.com/736x/6d/a7/70/6da7708a673f604e7e4c5d20827eaa11.jpg')"
+        }}
+      >
         <button
           className="Mediabutton"
           onClick={() => navigate("/music")}
-          onMouseEnter={() => setHovered("music")}
-          onMouseLeave={() => setHovered(null)}
         >
           MUSIC
         </button>
-      </section>
+      </div>
     </div>
   );
 }

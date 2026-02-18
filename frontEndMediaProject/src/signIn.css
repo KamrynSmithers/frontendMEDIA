@@ -14,10 +14,13 @@
     margin: 0;
     padding: 20px;
     min-height: 100vh;
-    overflow: hidden;
 }
 
-h1 {
+#signInLogin {
+  color: black;
+}
+
+ h1 {
     font-weight: 700;
     letter-spacing: -1.5px;
     margin: 0;
@@ -44,6 +47,7 @@ p {
 span {
     font-size: 14px;
     margin-top: 25px;
+    color: #0c0c0c;
 }
 
 a {
@@ -84,6 +88,7 @@ height: 12px;
     font-size: 14px;
     user-select: none;
     padding: 5px;
+    color: black;
 }
 
 button {
