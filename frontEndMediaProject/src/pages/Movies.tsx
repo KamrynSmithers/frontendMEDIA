@@ -30,3 +30,17 @@ function Movies () {
         console.error('Error fetching movies:', err);
         setLoading(false);
       });
+      }, [page]); 
+      if (selectedMovie) {
+    return (
+      <MoviePlayer
+        imdbId={selectedMovie.imdb_id}
+        type="movie"
+        onClose={() => setSelectedMovie(null)}
+      />
+    )
+  }
+
+  if (loading) {
+    return <div className="loading">Loading movies...</div>
+  }
