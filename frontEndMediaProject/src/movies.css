@@ -4,7 +4,7 @@
   background-color: #0a0a0a;
   color: white;
   overflow-y: auto;
-  height: 100vh; /* REMOVE THIS LINE */
+  height: 100vh;
 }
 
 .movies-container h1 {
