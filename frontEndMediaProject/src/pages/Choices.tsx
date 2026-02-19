@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../app.css";
+import "../App.css";
 import '../choices.css'
 
 function MediaSelection() {
